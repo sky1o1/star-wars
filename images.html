@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="ionicons-2.0.1\css\ionicons.min.css">
+    <link rel="icon" href="img/storm.jpg">
+    <title>Images</title>
+</head>
+
+<style>
+  body{
+    background-image: url("/img/img-bg.jpg");
+    background-size: 40%;
+    margin: 0;  
+  }
+
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 10px;
+}
+
+.column img {
+  margin-top: 12px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
+
+<body>
+    <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a href="index.html"><img src="img/darth.jfif" style="height: 40px;
+            width: auto;
+            float: left;
+            margin-top: 10px;
+            border-radius: 70px"></a>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="char.html">Characters</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="images.html">Images</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="form.html">Form</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signup.html">Sign-up</a>
+          </li>
+        </ul>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+            <form class="form-inline" action="/action_page.php">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search"  style="float: right;">
+              <button class="btn btn-success" href="#" type="submit"  style="float: right;" >Search</button>
+            </form>
+          </nav>
+    </nav>
+</header>    
+
+<div class="header">
+  <h1 style="color: white; font-family: serif;"><b>Image Grid</b></h1 st>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+  <img src="/img/11.jpg" style="width:100%">
+  <img src="/img/1.jpg" style="width:100%">
+  <img src="/img/7.jpg" style="width:100%">
+  <img src="/img/3.jpg" style="width:100%">
+  <img src="/img/4.jpg" style="width:100%">
+  <img src="/img/5.jpg" style="width:100%">
+  
+  </div>
+  <div class="column">
+    <img src="/img/6.jpg" style="width:100%">
+    <img src="/img/2.jpg" style="width:100%">
+  <img src="/img/8.jpg" style="width:100%">
+  <img src="/img/9.jpg" style="width:100%">
+  <img src="/img/10.jpg" style="width:100%">
+  </div> 
+</div>
+
+
+<footer style=" background-image: url(img/footer.jpg);  background-size: cover;
+left: 0;
+bottom: 0;
+width: 100%;
+color: white;
+height: 130px;
+text-align: center;">
+    <div class="container" style="margin-bottom: 0px;
+      left: 0;
+      bottom: 0;
+      color: white;">
+        <div class="row">
+            <div class="col-sm-4" style="padding-top: 10px;">
+                <ul style="color: blanchedalmond;">
+                  <li>About us</li>
+                  <li>Blog</li>
+                  <li>Contact us</li>
+                  <li>FAQ</li>
+                </ul>
+            </div>
+            <div class="col-sm-4" style="margin-top: 50px; text-align: center; color: blanchedalmond;">
+                <p>Copyright &copy; Test. All rights reserved</p>
+            </div>
+            <div class="col-sm-4"  style="float: right; "> 
+                <h6 style="font: 1em sans-serif; color: #fff; float: right;"><b>Follow us on</b></h6><br>
+                <ul style="float: right;">
+                  <li><a href="https://www.facebook.com"><i class="ion-social-facebook" style="font-size: 20px;"></i></a></li >
+                  <li><a href="https://www.twitter.com"><i class="ion-social-twitter" style="font-size: 20px;"></i></a></li>
+                  <li><a href="https://www.instagram.com"><i class="ion-social-instagram" style="font-size: 20px;"></i></a> </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>  
+</footer>      
+</body>
+</html>
+
+
+
