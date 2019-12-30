@@ -44,6 +44,9 @@
           <li class="nav-item">
             <a class="nav-link" href="signup.html">Sign-up</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="list.html">List</a>
+          </li>
         </ul>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
             <form class="form-inline" action="/action_page.php">
@@ -56,7 +59,7 @@
 
 <div class="container" style="background-color: transparent; box-sizing: border-box; width: 37%;">
     <h2 style="text-align: center; color: whitesmoke;"><b>Form</b></h2>
-    <form>
+    <form action="list.html" method="GET">
       <div class="form-group">
         <label style="color: white;">Name</label>
         <input type="text" class="form-control" style="width: 450px; " id="name">
@@ -137,11 +140,19 @@ text-align: center;">
 </footer>    
 
 <script>
-    var data = [];
-    $(document).ready(function(){
+    var data12=[];
+function reloadOldData()
+{
+  var disp = localStorage.getItem("value");//array
+            data12 = JSON.parse(disp);//json array
+            alert(data12.length);
+}
 
-        // $('#submit').click(function(){
-          $(document).on('click', '#submit', function(){
+    $(document).ready(function(){
+          // $('#submit').click(function(){
+          $(document).on('click', '#submit', function(e){
+            e.preventDefault();
+
             const name = $('#name').val();
             const add = $('#add').val();
             const num = $('#num').val();
@@ -156,38 +167,33 @@ text-align: center;">
                     "gen": gen,
                     };
             
-            data.push(myObj);        
-            myVar = JSON.stringify(data);   
+                    console.log(data12);
+            data12.push(myObj);        
+            myVar = JSON.stringify(data12);   
             
-            localStorage.setItem("value",myVar)
+            localStorage.setItem("value",myVar);
             alert('data saved to local storage.');
+
         });
+        
 
         $("#display").click(function(){
-            var disp = localStorage.getItem("value");//array
-            console.log(disp);
-            var result = JSON.parse(disp);//json array
-            // document.getElementById("output").innerHTML = result.name;
-            console.log(result);
-            // $('#output').html(result.name)
-            $.each(result, function(index, value){
-            $("#output").append("name" + ": " + value.name + '<br>' + '&nbsp');
-            $("#output").append("address"+ ": " + value.add + '<br>' + '&nbsp');
-            $("#output").append("number"+ ": " + value.num + '<br>' + '&nbsp');
-            $("#output").append("mail"+ ": " + value.mail + '<br>' + '&nbsp');
-            $("#output").append("gender" + ": " + value.gen + '<br>' + '&nbsp');
-        })
+
+          
+            reloadOldData();
+            console.log(data12);
+            $.each(data12, function(index, value){
+            $("#output").append("Name" + ": " + value.name + '<br>' + '&nbsp');
+            $("#output").append("Address"+ ": " + value.add + '<br>' + '&nbsp');
+            $("#output").append("Number"+ ": " + value.num + '<br>' + '&nbsp');
+            $("#output").append("Mail"+ ": " + value.mail + '<br>' + '&nbsp');
+            $("#output").append("Gender" + ": " + value.gen + '<br>' + '&nbsp');
+        });
 
         });
-    
-
-
-
-
-
-
-
     });
+    reloadOldData();
+
 </script>
 </body>
 </html>

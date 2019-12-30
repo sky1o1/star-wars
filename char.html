@@ -45,10 +45,13 @@
           <li class="nav-item">
             <a class="nav-link" href="signup.html">Sign-up</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="list.html">List</a>
+          </li>
         </ul>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
             <form class="form-inline" action="/action_page.php">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" id="myInput" style="float: right;">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" style="float: right;">
               <button class="btn btn-success" href="#" type="submit"  style="float: right;" >Search</button>
             </form>
           </nav>
@@ -58,7 +61,7 @@
 <div class="container" style="min-height: 500px;">
     <div class="row">
         <h2 style="color: white; text-align: center;"><b>Characters</b></h2>
-        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+        <input class="form-control"  type="text" placeholder="Search..">
         <br><br>
     <table class="table table-dark table-hover">
         <thead>
@@ -137,7 +140,7 @@ color: white; height: 130px; text-align: center;">
 
 <script>
   $(document).ready(function(){
-  $("#myInput").on("keyup", function() {
+  $(".container input").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $("#myTable tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
