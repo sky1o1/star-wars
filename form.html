@@ -141,12 +141,22 @@ text-align: center;">
 
 <script>
     var data12=[];
-function reloadOldData()
-{
-  var disp = localStorage.getItem("value");//array
-            data12 = JSON.parse(disp);//json array
-            alert(data12.length);
-}
+// function reloadOldData()
+// {
+//   var disp = localStorage.getItem("value");//array
+//             data12 = JSON.parse(disp);//json array
+//             alert(data12.length);
+// }
+
+        function reloadOldData() {
+              var disp = localStorage.getItem("value"); //array
+              data12 = JSON.parse(disp); //json array
+            }
+
+            function getOldData() {
+              var data = localStorage.getItem("value");
+              return JSON.parse(data);
+            }
 
     $(document).ready(function(){
           // $('#submit').click(function(){
@@ -166,13 +176,28 @@ function reloadOldData()
                     "mail": mail,
                     "gen": gen,
                     };
+
+
+            //getting old data
+            var oldData = getOldData();
+            //checking if this is first data in localstorage
+
+            if (oldData != null) {
+              oldData.push(myObj)
+              localStorage.setItem("value", JSON.stringify(oldData));
+            } else {
+              console.log("first element")
+              var data = [];
+              data.push(myObj);
+              localStorage.setItem("value", JSON.stringify(data))
+            }
             
-                    console.log(data12);
-            data12.push(myObj);        
-            myVar = JSON.stringify(data12);   
+            //         console.log(data12);
+            // data12.push(myObj);        
+            // myVar = JSON.stringify(data12);   
             
-            localStorage.setItem("value",myVar);
-            alert('data saved to local storage.');
+            // localStorage.setItem("value",myVar);
+            // alert('data saved to local storage.');
 
         });
         
@@ -180,7 +205,7 @@ function reloadOldData()
         $("#display").click(function(){
 
           
-            reloadOldData();
+            // reloadOldData();
             console.log(data12);
             $.each(data12, function(index, value){
             $("#output").append("Name" + ": " + value.name + '<br>' + '&nbsp');
