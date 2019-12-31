@@ -58,9 +58,9 @@
     </nav>
 </header>    
 
-<div class="container" style="min-height: 500px;">
+<div class="container" style="min-height: 500px; padding-top: 10px;">
     <div class="row">
-        <h2 style="color: white; text-align: center;"><b>Characters</b></h2>
+        <h2 style="color: white; text-align: center; padding-bottom: 10px;"><b>Members</b></h2>
         <input class="form-control"  type="text" placeholder="Search..">
         <br><br>
     <table class="table table-dark table-hover">
@@ -124,14 +124,26 @@ color: white; height: 130px; text-align: center;">
             });
           });
 
+            // $.each(res, function (index, value) {
+            //   var trElement = "<tr>";
+            //   for (var key in value) {
+            //     trElement += ` <td> ${value[key]} </td> `
+            //   }
+            //   trElement += " </tr>"
+            //   $('#myTable').append(trElement)
+            // });
             $.each(res, function (index, value) {
-              var trElement = "<tr>";
-              for (var key in value) {
+            var trElement = "<tr>";
+            for (var key in value) {
+              if (key === 'name') {
+                trElement += ` <td> <a href="./display.html?name=${value['name']}"> ${value[key]} </a> </td> `
+              } else {
                 trElement += ` <td> ${value[key]} </td> `
               }
-              trElement += " </tr>"
-              $('#myTable').append(trElement)
-            });
+           }
+            trElement += " </tr>"
+            $('#myTable').append(trElement)
+          });
           })
     
 

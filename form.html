@@ -57,7 +57,7 @@
     </nav>
 </header>    
 
-<div class="container" style="background-color: transparent; box-sizing: border-box; width: 37%;">
+<div class="container" style="background-color: transparent; box-sizing: border-box; width: 37%; padding-top: 10px;">
     <h2 style="text-align: center; color: whitesmoke;"><b>Form</b></h2>
     <form action="list.html" method="GET">
       <div class="form-group">
@@ -197,7 +197,7 @@ text-align: center;">
             // myVar = JSON.stringify(data12);   
             
             // localStorage.setItem("value",myVar);
-            // alert('data saved to local storage.');
+            alert('data saved to local storage.');
 
         });
         
@@ -205,7 +205,7 @@ text-align: center;">
         $("#display").click(function(){
 
           
-            // reloadOldData();
+            reloadOldData();
             console.log(data12);
             $.each(data12, function(index, value){
             $("#output").append("Name" + ": " + value.name + '<br>' + '&nbsp');

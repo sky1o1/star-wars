@@ -9,26 +9,124 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="ionicons-2.0.1\css\ionicons.min.css">
-    <title>Document</title>
+    <link rel="icon" href="img/trooper.jfif">
+    <title>Death-star</title>
 </head>
+
+<style>
+  body{
+    background-image: url("img/star.jpg");
+    background-size: cover;
+    ;
+  }
+</style>
+
 <body>
-    <div>
-        <textarea id="result"></textarea>
-    </div>
+    <header>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a href="index.html"><img src="img/darth.jfif" style="height: 40px;
+        width: auto;
+        float: left;
+        margin-top: 10px;
+        border-radius: 70px"></a>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item ">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="char.html">Characters</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="images.html">Images</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="form.html">Form</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="signup.html">Sign-up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="list.html">List</a>
+          </li>
+        </ul>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+            <form class="form-inline" action="/action_page.php">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" style="float: right;">
+              <button class="btn btn-success" href="#" type="submit"  style="float: right;" >Search</button>
+            </form>
+          </nav>
+    </nav>
+</header>    
+
+<div class="container"  style="min-height: 500px; padding-top: 80px; padding-left: 370px;">
+  <h2 style="color: white;"><b>Information</b></h2>
+  <textarea id="result" rows="10" cols="50"></textarea>
+</div>
+
+<footer style=" background-image: url(img/footer.jpg);  background-size: cover; left: 0; bottom: 0; width: 100%;
+color: white; height: 130px; text-align: center;">
+    <div class="container" style="margin-bottom: 0px; left: 0; bottom: 0; color: white; ">
+        <div class="row">
+            <div class="col-sm-4" style="padding-top: 10px;">
+                <ul style="color: blanchedalmond;">
+                  <li>About us</li>
+                  <li>Blog</li>
+                  <li>Contact us</li>
+                  <li>FAQ</li>
+                </ul>
+            </div>
+            <div class="col-sm-4" style="margin-top: 50px; text-align: center; color: blanchedalmond;">
+                <p>Copyright &copy; Test. All rights reserved</p>
+            </div>
+            <div class="col-sm-4"  style="float: right;"> 
+                <h6 style="font: 1em sans-serif; color: #fff; float: right;"><b>Follow us on</b></h6><br>
+                <ul style="float: right;">
+                  <li><a href="https://www.facebook.com"><i class="ion-social-facebook" style="font-size: 20px;"></i></a></li >
+                  <li><a href="https://www.twitter.com"><i class="ion-social-twitter" style="font-size: 20px;"></i></a></li>
+                  <li><a href="https://www.instagram.com"><i class="ion-social-instagram" style="font-size: 20px;"></i></a> </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>  
+</footer>      
 </body>
 
 <script>
-        var disp = localStorage.getItem("information");
-        var res = JSON.parse(disp);
-$(document).ready(function(){
-        $.each(res, function(index, value){
-            $("#result").append("Name" + ": " + value.name + '<br>' + '&nbsp');
-            $("#result").append("Address"+ ": " + value.add + '<br>' + '&nbsp');
-        
-        });
-    })
+  var disp = localStorage.getItem("value");
+  var res = JSON.parse(disp);
+  $(document).ready(function () {
+    //getting name from url
+    console.log(window.location.href)
+    var link = window.location.href;
+    var nameData = link.split("=")[1];
+    var splitData = nameData.replace(/[^\w\s]/gi, ' ');
+    var splitNum = splitData.replace(/[\d]/gi, '');
+    console.log(nameData);
+    console.log(splitData);
+    console.log(splitNum);
+    
 
-// document.getElementById("result").innerHTML = localStorage.getItem("info");
+  $.each(res, function (index, value) {
+    console.log(value['name']);
+      if (value['name'] === splitNum) {
+      //   console.log(value)
+       showValue(value);
+      }
 
+    });
+  })
+function showValue(value){
+  var dataElement = "";
+        dataElement += `Name : ${value['name']} \n`;
+        dataElement += `Address : ${value['add']} \n`;
+        dataElement += `Phone : ${value['num']}  \n`;
+        dataElement += `Email : ${value['mail']}  \n`;
+        dataElement += `Gender : ${value['gen']} \n`;
+        console.log(dataElement);
+        $('#result').append(dataElement)
+}
+  // document.getElementById("result").innerHTML = localStorage.getItem("info");
 </script>
+
 </html>
