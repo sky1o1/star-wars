@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="http://ajax.aspnetcdn.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js"
+    type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="ionicons-2.0.1\css\ionicons.min.css">
+  <title>Test</title>
+</head>
+
+<body>
+  <div class="container" style="background-color: black; box-sizing: border-box; width: 37%; padding-top: 10px;">
+    <h2 style="text-align: center; color: whitesmoke;"><b>Form</b></h2>
+    <form action="list.html" method="GET">
+      <div class="form-group">
+        <label style="color: white;">Name</label>
+        <input type="text" class="form-control" style="width: 450px; " id="name">
+      </div>
+      <div class="form-group">
+        <label style="color: white;">Address</label>
+        <input type="text" class="form-control" style="width: 450px;" id="add">
+      </div>
+      <div class="form-group">
+        <label style="color: white;">Phone Number</label>
+        <input type="text" class="form-control" style="width: 450px;" id="num">
+      </div>
+      <div class="form-group">
+        <label style="color: white;">Email</label>
+        <input type="email" class="form-control" style="width: 450px;" id="mail">
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" id="gen" name="Gender" value="Male">
+          <h6 style="color: white;">Male</h6>
+        </label>
+      </div>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" id="gen" name="Gender" value="Female">
+          <h6 style="color: white;">Female</h6>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn-primary" id="adder">Add</button>
+      <button type="button" class="btn btn-danger" id="del" onclick="test()">Delete</button>
+    </form>
+
+    <div class="container" style="min-height: 500px; padding-top: 10px;">
+      <div class="row">
+        <!-- <h2 style="color: white; text-align: center; padding-bottom: 10px;"><b>Members</b></h2>
+                <input class="form-control"  type="text" placeholder="Search..">
+                <br><br> -->
+        <table class="table table-dark table-hover" id="example">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Number</th>
+              <th>Email</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody id="myTable" style="text-decoration: none; text-decoration-color: white;">
+            <tr>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+<script type="text/javascript">
+
+  var result = [];
+
+  function reloadOldData() {
+    var data = localStorage.getItem("value1");
+    var result = JSON.parse(data);
+    console.log(result);
+
+    $("#sample").tmpl(result).appendTo("#myTable");
+
+      // alert('data saved to local storage.');
+  }
+  
+
+
+  function getOldData() {
+    console.log("old")
+    var data = localStorage.getItem("value1");
+    return JSON.parse(data);
+  }
+
+  $(document).ready(function () {
+
+    $(document).on('click', '#adder', function (e) {
+      e.preventDefault();
+      const name = $('#name').val();
+      const add = $('#add').val();
+      const num = $('#num').val();
+      const mail = $('#mail').val();
+      var gen = $('input[name="Gender"]:checked').val();
+
+      myObj = {
+        "name": name,
+        "add": add,
+        "num": num,
+        "mail": mail,
+        "gen": gen,
+      };
+
+      console.log(result);
+      var oldData = getOldData();
+
+      if (oldData != null) {
+        oldData.push(myObj)
+        localStorage.setItem("value1", JSON.stringify(oldData));
+      } else {
+        console.log("first element")
+        var data = [];
+        data.push(myObj);
+        localStorage.setItem("value1", JSON.stringify(data))
+      }
+
+      reloadOldData();
+    });
+  });
+
+
+  function test() {
+    var demo = document.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    var i = demo.length;
+    while (i--) {
+      if (demo[i].getElementsByTagName('input')[0].checked) {
+        demo[i].parentNode.removeChild(demo[i]);
+      }
+    }
+  }
+
+  reloadOldData();
+
+</script>
+<script id="sample" type="text/html">
+ <tr>
+    <td><input type="checkbox"></td>
+    <td>${name}</td>
+    <td>${add}</td>
+    <td>${num}</td>
+    <td>${mail}</td>
+    <td>${gen}</td>
+ </tr>
+</script>
+
+</html>

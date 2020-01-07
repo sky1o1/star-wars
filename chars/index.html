@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="ionicons-2.0.1\css\ionicons.min.css">
-    <link rel="icon" href="img/trooper.jfif">
+    <link rel="icon" href="img/darth.jfif">
     <title>Death-star</title>
 </head>
 
@@ -30,10 +30,10 @@
         margin-top: 10px;
         border-radius: 70px"></a>
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item ">
+          <li class="nav-item active">
             <a class="nav-link" href="index.html">Home</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="char.html">Characters</a>
           </li>
           <li class="nav-item">
@@ -51,67 +51,30 @@
         </ul>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
             <form class="form-inline" action="/action_page.php">
-              <input class="form-control mr-sm-2" type="text" placeholder="Search" style="float: right;">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search"  style="float: right;">
               <button class="btn btn-success" href="#" type="submit"  style="float: right;" >Search</button>
             </form>
           </nav>
     </nav>
 </header>    
 
-<div class="container" style="min-height: 500px; padding-top: 10px;">
-    <div class="row">
-        <h2 style="color: white; text-align: center; padding-bottom: 10px;"><b>Characters</b></h2>
-        <input class="form-control"  type="text" placeholder="Search..">
-        <br><br>
-    <table class="table table-dark table-hover">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody id="myTable" style="text-decoration: none; text-decoration-color: white;">
-          <tr>
-            <td><a href="/chars/yoda.html">Yoda</a></td>
-            <td>Jedi</td>
-          </tr>
-          <tr>
-            <td><a href="/chars/vader.html">Darth Vader</a></td>
-            <td>Dark Lord of Sith</td>
-          </tr>
-          <tr>
-            <td><a href="/chars/padme.html">Padmé Amidala</a></td>
-            <td>Queen of Naboo</td>
-          </tr>
-          <tr>
-            <td><a href="/chars/luke.html">Luke Skywalker</a></td>
-            <td>Jedi</td>
-          </tr>
-          <tr>
-            <td><a href="/chars/leia.html">Leia Organa</a></td>
-            <td>Jedi</td>
-          </tr>
-          <tr>
-            <td><a href="/chars/obi.html">Obi-Wan Kenobi</a></td>
-            <td>Jedi</td>
-          </tr>
-          <tr>
-            <td><a href="/chars/solo.html">Han Solo</a></td>
-            <td>Captain of the Millenium Falcon</td>
-          </tr>
-          <tr>
-            <td><a href="/chars/ren.html">Kylo Ren</a></td>
-            <td>Supreme Leader of the First Order</td>
-          </tr>
-          
-        </tbody>
-      </table>
-    </div>
+<div class="container"><br>
+  <h2 style="color: white;">In the galaxy far far away......</h2><br>
+  <div class="jumbotron" style="background-image: url(/img/galaxy.jpg);">
+  <p style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em; color: white; font-family:cursive;">
+    Star Wars is an American epic space-opera media franchise created by George Lucas, which began with the eponymous 1977 film and quickly became a worldwide pop-culture phenomenon. The franchise has been expanded into various films and other media, including television series, video games, novels, comic books, theme park attractions and themed areas, comprising an all-encompassing fictional universe. The franchise holds a Guinness World Records title for the "Most successful film merchandising franchise."[1] In 2018, the total value of the Star Wars franchise was estimated at US$65 billion, and it is currently the fifth-highest-grossing media franchise of all time.
+
+    The original film, later subtitled Episode IV – A New Hope, was followed by the sequels Episode V – The Empire Strikes Back (1980) and Episode VI – Return of the Jedi (1983), forming the original Star Wars trilogy. A prequel trilogy was later released, consisting of Episode I – The Phantom Menace (1999), Episode II – Attack of the Clones (2002) and Episode III – Revenge of the Sith (2005). Ten years later, a sequel trilogy began with Episode VII – The Force Awakens (2015), continued with Episode VIII – The Last Jedi (2017), and concluded with Episode IX – The Rise of Skywalker (2019). Together, the three trilogies form what has been referred to as the 'Skywalker saga'. The first eight films were nominated for Academy Awards (with wins going to the first two released) and were commercially successful. Together with the theatrical anthology films Rogue One (2016) and Solo: A Star Wars Story (2018), the combined box office revenue of the films equates to over US$9 billion,[2] and is currently the second-highest-grossing film franchise.[3]
+    
+    In 2012, Lucas sold his company to Disney, and in April 2014, most existing spin-off media was made non-canon and rebranded as 'Star Wars Legends'. The episodic 'Skywalker saga' and The Clone Wars film and TV series (2008–2014) define the canon, along with most subsequent works.
+  </p>
+</div>
+
 </div>
 
 <footer style=" background-image: url(img/footer.jpg);  background-size: cover; left: 0; bottom: 0; width: 100%;
 color: white; height: 130px; text-align: center;">
-    <div class="container" style="margin-bottom: 0px; left: 0; bottom: 0; color: white; ">
+    <div class="container" style="margin-bottom: 0px; left: 0; bottom: 0; color: white;">
         <div class="row">
             <div class="col-sm-4" style="padding-top: 10px;">
                 <ul style="color: blanchedalmond;">
@@ -140,7 +103,7 @@ color: white; height: 130px; text-align: center;">
 
 <script>
   $(document).ready(function(){
-  $(".container input").on("keyup", function() {
+  $("#myInput").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $("#myTable tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)

@@ -141,12 +141,6 @@ text-align: center;">
 
 <script>
     var data12=[];
-// function reloadOldData()
-// {
-//   var disp = localStorage.getItem("value");//array
-//             data12 = JSON.parse(disp);//json array
-//             alert(data12.length);
-// }
 
         function reloadOldData() {
               var disp = localStorage.getItem("value"); //array
@@ -159,7 +153,6 @@ text-align: center;">
             }
 
     $(document).ready(function(){
-          // $('#submit').click(function(){
           $(document).on('click', '#submit', function(e){
             e.preventDefault();
 
@@ -192,19 +185,12 @@ text-align: center;">
               localStorage.setItem("value", JSON.stringify(data))
             }
             
-            //         console.log(data12);
-            // data12.push(myObj);        
-            // myVar = JSON.stringify(data12);   
-            
-            // localStorage.setItem("value",myVar);
             alert('data saved to local storage.');
 
         });
         
 
         $("#display").click(function(){
-
-          
             reloadOldData();
             console.log(data12);
             $.each(data12, function(index, value){
@@ -214,7 +200,6 @@ text-align: center;">
             $("#output").append("Mail"+ ": " + value.mail + '<br>' + '&nbsp');
             $("#output").append("Gender" + ": " + value.gen + '<br>' + '&nbsp');
         });
-
         });
     });
     reloadOldData();
